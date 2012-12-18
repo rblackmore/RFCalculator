@@ -3,20 +3,19 @@
 <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
-        android:padding="8dp">
+        android:padding="4dp">
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/headAntennaPwr"
-            android:id="@+id/textView" android:layout_centerHorizontal="true" android:layout_alignParentTop="true"
+            android:id="@+id/txtHead" android:layout_centerHorizontal="true" android:layout_alignParentTop="true"
             android:textSize="16dp"/>
 
     <RadioGroup
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/textView"
-            android:orientation="horizontal">
+            android:orientation="horizontal" android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txtHead" android:id="@+id/rdogrpFormat">
 
 
         <RadioButton
@@ -25,21 +24,46 @@
                 android:text="@string/rdoEIRPoption"
                 android:id="@+id/rdoEIRP"
                 android:checked="true" android:clickable="true"
-                android:layout_toLeftOf="@+id/textView"
-                android:layout_below="@+id/textView"
+                android:layout_toLeftOf="@+id/txtHead"
+                android:layout_below="@+id/txtHead"
                 />
 
         <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/rdoERPoption"
-                android:id="@+id/radioButton"
-                android:layout_toRightOf="@+id/textView"
-                android:layout_below="@+id/textView"
+                android:id="@+id/rdoERP"
+                android:layout_toRightOf="@+id/txtHead"
+                android:layout_below="@+id/txtHead"
                 android:clickable="true"
                 android:checked="false"
-                android:layout_gravity="center_horizontal|bottom"/>
+                />
 
     </RadioGroup>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txtDesiredPower"
+            android:id="@+id/txtPowerOutput"
+            android:textSize="16dp"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_toLeftOf="@+id/rdogrpFormat" android:layout_below="@+id/rdogrpFormat"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/edttxtDesiredPower"
+            android:hint="@string/txtHintDesiredPower"
+            android:layout_centerHorizontal="true" android:layout_below="@+id/rdogrpFormat"
+            android:layout_alignParentTop="false"/>
+    <Spinner
+            android:id="@+id/spnAntenna"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txtPowerOutput"
+            android:prompt="@string/spnAntennaPrompt"
+            android:entries="@array/Antennas"
+         />
+
 
 </RelativeLayout>
