@@ -25,3 +25,4 @@ local.properties
 *.iml
 *.idea
 out
+project.properties
