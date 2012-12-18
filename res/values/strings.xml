@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RFCalculator</string>
+    <string name="headAntennaPwr">Antenna Power</string>
+    <string name="rdoEIRPoption">EIRP</string><string name="rdoERPoption">ERP</string>
+
+</resources>

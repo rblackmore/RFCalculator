@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+        android:padding="8dp">
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/headAntennaPwr"
+            android:id="@+id/textView" android:layout_centerHorizontal="true" android:layout_alignParentTop="true"
+            android:textSize="16dp"/>
+
+    <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView"
+            android:orientation="horizontal">
+
+
+        <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="@string/rdoEIRPoption"
+                android:id="@+id/rdoEIRP"
+                android:checked="true" android:clickable="true"
+                android:layout_toLeftOf="@+id/textView"
+                android:layout_below="@+id/textView"
+                />
+
+        <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rdoERPoption"
+                android:id="@+id/radioButton"
+                android:layout_toRightOf="@+id/textView"
+                android:layout_below="@+id/textView"
+                android:clickable="true"
+                android:checked="false"
+                android:layout_gravity="center_horizontal|bottom"/>
+
+    </RadioGroup>
+
+</RelativeLayout>
