@@ -14,12 +14,14 @@
     <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" android:layout_centerHorizontal="true"
-            android:layout_below="@+id/txtHead" android:id="@+id/rdogrpFormat">
+            android:orientation="vertical"
+            android:id="@+id/rdogrpFormat"
+            android:layout_alignRight="@+id/spnAntenna"
+            android:layout_below="@+id/txtHead">
 
 
         <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:text="@string/rdoEIRPoption"
                 android:id="@+id/rdoEIRP"
@@ -29,7 +31,7 @@
                 />
 
         <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/rdoERPoption"
                 android:id="@+id/rdoERP"
@@ -40,30 +42,68 @@
                 />
 
     </RadioGroup>
-    <TextView
-            android:layout_width="wrap_content"
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/txtDesiredPower"
-            android:id="@+id/txtPowerOutput"
-            android:textSize="16dp"
-            android:layout_alignWithParentIfMissing="false"
-            android:layout_toLeftOf="@+id/rdogrpFormat" android:layout_below="@+id/rdogrpFormat"/>
-    <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/edttxtDesiredPower"
-            android:hint="@string/txtHintDesiredPower"
-            android:layout_centerHorizontal="true" android:layout_below="@+id/rdogrpFormat"
-            android:layout_alignParentTop="false"/>
+            android:id="@+id/powerLayout"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/rdogrpFormat">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txtDesiredPower"
+                android:id="@+id/txtPowerOutput"
+                android:textSize="16dp"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_alignParentLeft="true"
+                android:layout_alignBaseline="@+id/editText"/>
+
+        <EditText
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText"
+                android:hint="@string/txtHintDesiredPower"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentTop="false"
+                android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
     <Spinner
             android:id="@+id/spnAntenna"
-            android:layout_width="match_parent"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/txtPowerOutput"
             android:prompt="@string/spnAntennaPrompt"
             android:entries="@array/Antennas"
-         />
+
+            android:layout_below="@+id/powerLayout"
+            android:layout_alignParentRight="true"/>
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/spnAntenna"
+            android:gravity="center_horizontal"
+            android:id="@+id/relativeLayout">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txtGain"
+                android:id="@+id/textView"
+                android:layout_alignBaseline="@+id/editText1"/>
+
+        <EditText
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText1"
+                android:hint="@string/hintGain"
+                android:layout_alignParentRight="true"/>
+    </RelativeLayout>
 
 
 </RelativeLayout>

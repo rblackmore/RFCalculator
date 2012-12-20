@@ -6,7 +6,7 @@
     <string name="rdoERPoption">ERP</string>
     <string name="txtDesiredPower">Power Output:</string>
     <string name="txtHintDesiredPower">Desired Power...</string>
-    <string name="spnAntennaPrompt">Choose and Antenna...</string>
+    <string name="spnAntennaPrompt">Choose an Antenna...</string><string name="txtGain">Antenna Gain:</string><string name="hintGain">Antenna Gain...</string>
 
     <!--This is a temp array, these values will be added programatically later-->
     <string-array name="Antennas">
