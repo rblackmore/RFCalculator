@@ -17,10 +17,11 @@ public class Antenna {
     private float fltGain;
     private boolean blnType; //true = Circular, false = Linear
 
-    public Antenna(int intID, String strName, float fltGain) {
+    public Antenna(int intID, String strName, float fltGain, boolean blnType) {
         this.intID = intID;
         this.strName = strName;
         this.fltGain = fltGain;
+        this.blnType = blnType;
     }
 
     public int getIntID() {

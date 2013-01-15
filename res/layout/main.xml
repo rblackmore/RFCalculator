@@ -14,32 +14,30 @@
     <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:id="@+id/rdogrpFormat"
-            android:layout_alignRight="@+id/spnAntenna"
-            android:layout_below="@+id/txtHead">
+            android:layout_below="@+id/txtHead" android:layout_alignWithParentIfMissing="false"
+            android:layout_centerHorizontal="true">
 
 
         <RadioButton
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/rdoEIRPoption"
                 android:id="@+id/rdoEIRP"
                 android:checked="true" android:clickable="true"
-                android:layout_toLeftOf="@+id/txtHead"
-                android:layout_below="@+id/txtHead"
-                />
+
+                android:layout_gravity="start|center_horizontal" android:layout_marginRight="20dp"/>
 
         <RadioButton
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/rdoERPoption"
                 android:id="@+id/rdoERP"
-                android:layout_toRightOf="@+id/txtHead"
-                android:layout_below="@+id/txtHead"
+                android:layout_toRightOf="@+id/rdoEIRP"
                 android:clickable="true"
                 android:checked="false"
-                />
+                android:layout_marginLeft="20dp"/>
 
     </RadioGroup>
 

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -42,34 +43,85 @@ public class RFCalcController {
     final private String FILE_ANTENNAS = "antennas.csv";
     final private String FILE_CABLES = "cables.csv";
     final private String DELIMITER = ";";
+    final private int ANTENNAS = 0;
+    final private int CABLES = 1;
+
+    private String testString = "start";
 
 
     public RFCalcController(Context aContext) throws IOException {
         //Initializing constructor
         antennas = new ArrayList<Antenna>();
-        loadData(aContext, FILE_ANTENNAS, antennas);
-        loadData(aContext, FILE_CABLES, cables);
+        cables = new ArrayList<Cable>();
+        loadData(aContext, FILE_ANTENNAS, true, ANTENNAS);
+        loadData(aContext, FILE_CABLES, true, CABLES);
     }
 
-    private void loadData(Context aContext, String fileName, List list) throws IOException {
-        //loads all antennas from csv file into array list
-        AssetManager aMngr = aContext.getAssets();
-        InputStream antennaStream = aMngr.open(fileName);
+    private void loadData(Context aContext, String fileName, boolean heading, int whichList) throws IOException {
+        //loads all antennas/cables from csv file into array list
+        AssetManager mngr = aContext.getAssets();
+        InputStream stream = mngr.open(fileName);
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(antennaStream));
+        BufferedReader br = new BufferedReader(new InputStreamReader(stream));
 
-        String lineData = br.readLine(); //one whole line from csv vile
+        String newLine;
+        ArrayList<String> data = null;
 
-        while (lineData != null) {
-            String[] values = lineData.split(DELIMITER);
-            if (list == antennas) {
-                antennas.add(new Antenna(values[0], values[1], values[2], values[3]));
 
-            } else if (list == cables) {
-                cables.add(new Cable(values[0], values[1], values[2]));
-            }
+        //read the first 2 lines (if first line is a heading)
+        if (heading) {
+            br.readLine();
         }
 
+        newLine = br.readLine();
 
+
+        while (newLine != null) {
+
+            data = new ArrayList<String>(Arrays.asList(newLine.split(DELIMITER)));
+
+            if (whichList == ANTENNAS) {
+                //Populating Antennas list
+
+                int id = Integer.parseInt(data.get(0));
+                String name = data.get(1);
+                float gain = Float.parseFloat(data.get(2));
+                Boolean type;
+
+                if (data.get(3).equalsIgnoreCase("true")) {
+                    type = true;
+                } else {
+                    type = false;
+                }
+
+                antennas.add(new Antenna(id, name, gain, type));
+            } else if (whichList == CABLES) {
+                //populating cables list
+
+                int id = Integer.parseInt(data.get(0));
+                String name = data.get(1);
+                float dBm = Float.parseFloat(data.get(2));
+
+                cables.add(new Cable(id, name, dBm));
+
+            }
+            newLine = br.readLine();
+
+
+        }
+
+        br.close();
+    }
+
+    public List<Antenna> getAntennas() {
+        return antennas;
+    }
+
+    public List<Cable> getCables() {
+        return cables;
+    }
+
+    public String getTestString() {
+        return testString;
     }
 }
