@@ -6,7 +6,11 @@
     <string name="rdoERPoption">ERP</string>
     <string name="txtDesiredPower">Power Output:</string>
     <string name="txtHintDesiredPower">Desired Power...</string>
-    <string name="spnAntennaPrompt">Choose an Antenna...</string><string name="txtGain">Antenna Gain:</string><string name="hintGain">Antenna Gain...</string>
+    <string name="spnAntennaPrompt">Choose an Antenna...</string>
+    <string name="txtGain">Antenna Gain:</string>
+    <string name="hintGain">Antenna Gain...</string>
+    <string name="txtAntenna">Antenna:</string>
+    <string name="txtPolarization">Circular Polarization:</string><string name="txtCable">Cable:</string><string name="txtLength">Length:</string><string name="edtxtLenth">Cable Length...</string><string name="btnCalc">Calculate</string>
 
     <!--This is a temp array, these values will be added programatically later-->
     <string-array name="Antennas">
