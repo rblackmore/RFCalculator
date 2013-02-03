@@ -66,7 +66,8 @@
                 android:hint="@string/txtHintDesiredPower"
                 android:layout_alignParentLeft="false"
                 android:layout_alignParentTop="false"
-                android:layout_alignParentRight="true"/>
+                android:layout_alignParentRight="true" android:singleLine="true"
+                android:text="@string/edtxtDefaultPower" android:inputType="numberDecimal"/>
 
     </RelativeLayout>
 
@@ -77,7 +78,7 @@
         <Spinner
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/spnrAntennas" android:layout_alignParentRight="true"/>
+                android:id="@+id/spnrAntennas" android:layout_alignParentRight="true" android:spinnerMode="dialog"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -105,7 +106,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/edtxtGain"
                 android:hint="@string/hintGain"
-                android:layout_alignParentRight="true"/>
+                android:layout_alignParentRight="true" android:visibility="visible" android:singleLine="true"
+                android:inputType="numberDecimal"/>
     </RelativeLayout>
     <RelativeLayout
             android:layout_width="fill_parent"
@@ -134,7 +136,8 @@
         <Spinner
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/spnrCable" android:layout_alignParentRight="true" android:longClickable="false"/>
+                android:id="@+id/spnrCable" android:layout_alignParentRight="true" android:longClickable="false"
+                android:spinnerMode="dialog"/>
     </RelativeLayout>
     <RelativeLayout
             android:layout_width="fill_parent"
@@ -149,7 +152,8 @@
         <EditText
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/edtxtLength" android:layout_alignParentRight="true" android:hint="@string/edtxtLenth"/>
+                android:id="@+id/edtxtLength" android:layout_alignParentRight="true" android:hint="@string/edtxtLenth"
+                android:singleLine="true" android:text="@string/edtxtDefaultLength" android:inputType="numberDecimal"/>
     </RelativeLayout>
     <RelativeLayout
             android:layout_width="fill_parent"
@@ -159,7 +163,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/btnCalc"
-                android:id="@+id/btnCalc" android:layout_centerHorizontal="true"/>
+                android:id="@+id/btnCalc"
+                android:layout_centerHorizontal="true"
+                android:onClick="btnCalcClick"/>
     </RelativeLayout>
 
 

@@ -25,28 +25,30 @@ import java.util.List;
  * Description:
  */
 public class RFCalcController {
-    private float fltEirp;
-    private float fltErp;
-    private float fltRadiatedPowerW;
-    private float fltRadiatedIsotropW;
-    private float fltRadiatedPowerDBm;
-    private float fltRadiatedIsotropDBm;
-    private float fltRadiatedPowerDBmPost; //Radiated power post calculation
-    private float fltOutputPowerMW;
-    private float fltConfigPowerW;
+
+//    private float fltEirp;
+//    private float fltErp;
+//    private float fltRadiatedPowerW;
+//    private float fltRadiatedIsotropW;
+//    private float fltRadiatedPowerDBm;
+//    private float fltRadiatedIsotropDBm;
+//    private float fltRadiatedPowerDBmPost; //Radiated power post calculation
+//    private float fltOutputPowerMW;
+//    private float fltConfigPowerW;
+
+    private Calculation calc;
 
     private List<Antenna> antennas;
     private List<Cable> cables;
 
-    final private float CORRECTION = 1.64f;
-    final private float CORRECTION_DB = 2.1f;
+//    final private float CORRECTION = 1.64f;
+//    final private float CORRECTION_DB = 2.1f;
     final private String FILE_ANTENNAS = "antennas.csv";
     final private String FILE_CABLES = "cables.csv";
     final private String DELIMITER = ";";
     final private int ANTENNAS = 0;
     final private int CABLES = 1;
 
-    private String testString = "start";
 
 
     public RFCalcController(Context aContext) throws IOException {
@@ -55,6 +57,9 @@ public class RFCalcController {
         cables = new ArrayList<Cable>();
         loadData(aContext, FILE_ANTENNAS, true, ANTENNAS);
         loadData(aContext, FILE_CABLES, true, CABLES);
+
+        calc = new Calculation();
+
     }
 
     private void loadData(Context aContext, String fileName, boolean heading, int whichList) throws IOException {
@@ -107,7 +112,6 @@ public class RFCalcController {
             }
             newLine = br.readLine();
 
-
         }
 
         br.close();
@@ -121,7 +125,43 @@ public class RFCalcController {
         return cables;
     }
 
-    public String getTestString() {
-        return testString;
+    public float beginCalculation(boolean  blnEIRP, float fltOutuput, Antenna antenna, Cable cable, float fltCabLength) {
+        calc.initCalculation(blnEIRP, fltOutuput, antenna, cable, fltCabLength);
+        float fltCFG3 = calc.calculate();
+
+        return fltCFG3;
     }
+
+    public boolean isEIRP() {
+        return calc.isBlnEIRP();
+    }
+
+    public float getERPWatt() {
+        return calc.getFltERPWatt();
+    }
+
+    public float getEIRPWatt() {
+        return calc.getFltEIRPWatt();
+    }
+
+    public float getERPdBm() {
+        return calc.getFltERPdBm();
+    }
+
+    public float getEIRPdBm() {
+        return calc.getFltEIRPdBm();
+    }
+
+    public float getRaddBm() {
+        return calc.getFltRadiateddBm();
+    }
+
+    public float getCFG3() {
+        return calc.getFltWattsCFG3();
+    }
+
+    public float getAttenuation() {
+        return calc.getAttenuation();
+    }
+
 }

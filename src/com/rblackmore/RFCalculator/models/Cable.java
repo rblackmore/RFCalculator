@@ -38,6 +38,14 @@ public class Cable {
         this.fltAttenuation = fltAttenuation;
     }
 
+    public int getIntID() {
+        return intID;
+    }
+
+    public void setIntID(int intID) {
+        this.intID = intID;
+    }
+
     public float getAttenuation(float length) {
         //calculates The attenuation based on the length of the cable.
         float attenuation = (this.fltAttenuation / 100) * length;

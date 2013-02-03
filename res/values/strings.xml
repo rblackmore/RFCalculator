@@ -5,19 +5,19 @@
     <string name="rdoEIRPoption">EIRP</string>
     <string name="rdoERPoption">ERP</string>
     <string name="txtDesiredPower">Power Output:</string>
-    <string name="txtHintDesiredPower">Desired Power...</string>
+    <string name="txtHintDesiredPower">Watts...</string>
     <string name="spnAntennaPrompt">Choose an Antenna...</string>
     <string name="txtGain">Antenna Gain:</string>
     <string name="hintGain">Antenna Gain...</string>
     <string name="txtAntenna">Antenna:</string>
-    <string name="txtPolarization">Circular Polarization:</string><string name="txtCable">Cable:</string><string name="txtLength">Length:</string><string name="edtxtLenth">Cable Length...</string><string name="btnCalc">Calculate</string>
+    <string name="txtPolarization">Circular Polarization:</string>
+    <string name="txtCable">Cable:</string>
+    <string name="txtLength">Length:</string>
+    <string name="edtxtLenth">Length(m)...</string>
+    <string name="btnCalc">Calculate</string>
+    <string name="edtxtDefaultPower">4</string><string name="edtxtDefaultLength">6</string>
 
-    <!--This is a temp array, these values will be added programatically later-->
-    <string-array name="Antennas">
-        <item>270x270</item>
-        <item>170x170</item>
-        <item>270x600</item>
+    <string name="detailsTitle">What to set...</string>
 
-    </string-array>
 
 </resources>
