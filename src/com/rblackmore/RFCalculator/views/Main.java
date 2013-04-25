@@ -4,6 +4,7 @@ package com.rblackmore.RFCalculator.views;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
@@ -107,15 +108,17 @@ public class Main extends Activity {
         //assigns the adapter object to the view, the view here will automatically populate itself using the adapters methods
         spinnerAntenna.setAdapter(antSpinAdapter);
 
+        spinnerAntenna.setSelection(1);
+
         //Listener for selecting an item
         spinnerAntenna.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Antenna antenna = antSpinAdapter.getItem(position);
+
+
+                                Antenna antenna = antSpinAdapter.getItem(position);
                 EditText edtxtGain = (EditText) findViewById(R.id.edtxtGain);
                 CheckBox chkPolarization = (CheckBox) findViewById(R.id.chkPolarization);
-
-
 
                 edtxtGain.setText(String.valueOf(antenna.getFltGain()));
                 chkPolarization.setChecked(antenna.isBlnType());

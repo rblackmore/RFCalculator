@@ -45,7 +45,7 @@ public class CableSpinAdapter extends ArrayAdapter<Cable> {
     public View getView(int position, View convertView, ViewGroup parent) {
         TextView label = new TextView(context);
         label.setTextColor(Color.WHITE);
-        label.setText(String.valueOf(values.get(position).getIntID()) + ", " + values.get(position).getStrName());
+        label.setText(String.valueOf(values.get(position).getStrName()));
         label.setTextSize(18.0f);
 
         return label;
@@ -55,7 +55,7 @@ public class CableSpinAdapter extends ArrayAdapter<Cable> {
     public View getDropDownView(int position, View convertView, ViewGroup parent) {
         TextView label = new TextView(context);
         label.setTextColor(Color.WHITE);
-        label.setText(String.valueOf(values.get(position).getIntID()) + ", " + values.get(position).getStrName());
+        label.setText(String.valueOf(values.get(position).getStrName()));
         label.setTextSize(18.0f);
 
         return label;

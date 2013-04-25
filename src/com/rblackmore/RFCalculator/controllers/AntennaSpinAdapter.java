@@ -29,6 +29,10 @@ public class AntennaSpinAdapter extends ArrayAdapter<Antenna>{
         this.context = context;
         this.values = values;
 
+        Antenna custom = new Antenna(99, "Custom", 0.0f, true);
+
+        this.values.add(custom);
+
 
     }
 
@@ -51,7 +55,7 @@ public class AntennaSpinAdapter extends ArrayAdapter<Antenna>{
         //builds and Returns a view for the Spinner display
         TextView label = new TextView(context);
         label.setTextColor(Color.WHITE);
-        label.setText(String.valueOf(values.get(position).getIntID()) + ", " + values.get(position).getStrName());
+        label.setText(String.valueOf(values.get(position).getStrName()));
         label.setTextSize(18.0f);
 
         return label;
@@ -62,7 +66,7 @@ public class AntennaSpinAdapter extends ArrayAdapter<Antenna>{
         //build and Returns a view for the drop down list below the spinner display
         TextView label = new TextView(context);
         label.setTextColor(Color.WHITE);
-        label.setText(String.valueOf(values.get(position).getIntID()) + ", " + values.get(position).getStrName());
+        label.setText(String.valueOf(values.get(position).getStrName()));
         label.setTextSize(18.0f);
 
         return label;
